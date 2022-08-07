@@ -99,6 +99,8 @@ export class AddIdeaComponent implements OnInit {
   }
 
   onReset() {
-    this.ideaForm.reset();
+    this.router.navigate(['./login']).then((val) => {
+      this.router.navigate(['./ideas']);
+    });
   }
 }

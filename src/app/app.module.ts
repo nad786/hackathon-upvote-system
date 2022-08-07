@@ -15,8 +15,6 @@ import { IdeasEffect } from './store/effects/ideas.effects';
 import { AddIdeaComponent } from './add-idea/add-idea.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-import { GetObjectKeyLengthPipe } from './pipes/get-object-key-length.pipe';
-import { FilterArrayPipe } from './pipes/filter-array.pipe';
 
 @NgModule({
   declarations: [
@@ -25,8 +23,6 @@ import { FilterArrayPipe } from './pipes/filter-array.pipe';
     IdeasComponent,
     AddIdeaComponent,
     LoginComponent,
-    GetObjectKeyLengthPipe,
-    FilterArrayPipe,
   ],
   imports: [
     BrowserModule,
