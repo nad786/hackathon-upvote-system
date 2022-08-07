@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install Package
 
-Run `ng install` download all dependemcy packages.
+Run `ng install` to download all dependemcy packages.
 
 ## Development server
 
