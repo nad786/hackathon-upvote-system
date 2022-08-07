@@ -1,9 +1,9 @@
-import { RouteGuard } from './route.guard';
-import { LoginComponent } from './login/login.component';
-import { AddIdeaComponent } from './add-idea/add-idea.component';
-import { IdeasComponent } from './ideas/ideas.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddIdeaComponent } from './components/add-idea/add-idea.component';
+import { IdeasComponent } from './components/ideas/ideas.component';
+import { LoginComponent } from './components/login/login.component';
+import { RouteGuard } from './guards/route.guard';
 
 const routes: Routes = [
   {

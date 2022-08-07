@@ -1,13 +1,12 @@
-import { HttpService } from './../http.service';
-import { getAllIdeas, updateIdeas } from './../store/actions/ideas.actions';
-import { IIdeas } from './../modals/IIdeas';
-import { Observable } from 'rxjs';
+import { HttpService } from './../../services/http.service';
+import { getAllIdeas } from './../../store/actions/ideas.actions';
+import { IIdeas } from './../../modals/IIdeas';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import {
   getAllIdeasFromStore,
   getUser,
-} from '../store/selectors/ideas.selectors';
+} from '../../store/selectors/ideas.selectors';
 import { Router } from '@angular/router';
 
 @Component({

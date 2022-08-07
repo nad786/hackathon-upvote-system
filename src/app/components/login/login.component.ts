@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { setLoginUser } from './../store/actions/ideas.actions';
+import { setLoginUser } from './../../store/actions/ideas.actions';
 import { Store } from '@ngrx/store';
 import { Component } from '@angular/core';
 

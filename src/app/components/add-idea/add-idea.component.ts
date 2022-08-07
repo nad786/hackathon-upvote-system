@@ -1,8 +1,8 @@
-import { selectIdeas } from './../store/selectors/ideas.selectors';
+import { selectIdeas } from '../../store/selectors/ideas.selectors';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { IIdeas } from './../modals/IIdeas';
-import { HttpService } from './../http.service';
+import { IIdeas } from '../../modals/IIdeas';
+import { HttpService } from '../../services/http.service';
 import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -13,8 +13,8 @@ import {
 import {
   getAllIdeasFromStore,
   getUser,
-} from '../store/selectors/ideas.selectors';
-import { getAllIdeas } from '../store/actions/ideas.actions';
+} from '../../store/selectors/ideas.selectors';
+import { getAllIdeas } from '../../store/actions/ideas.actions';
 
 @Component({
   selector: 'app-add-idea',

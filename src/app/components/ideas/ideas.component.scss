@@ -1,4 +1,8 @@
-.container {
+
+.main-container {
+  padding: 20px;
+
+  .container {
   height: 100%;
   width: 100%;
   display: grid;
@@ -59,4 +63,6 @@
 
 .card-tags {
   margin: 0;
+}
+
 }

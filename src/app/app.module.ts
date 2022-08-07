@@ -8,13 +8,13 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { LoaderComponent } from './loader/loader.component';
 import { EffectsModule } from '@ngrx/effects';
-import { IdeasComponent } from './ideas/ideas.component';
 import { IdeasEffect } from './store/effects/ideas.effects';
-import { AddIdeaComponent } from './add-idea/add-idea.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { IdeasComponent } from './components/ideas/ideas.component';
+import { AddIdeaComponent } from './components/add-idea/add-idea.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [

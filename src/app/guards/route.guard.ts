@@ -8,7 +8,7 @@ import {
 } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable, map } from 'rxjs';
-import { getUser } from './store/selectors/ideas.selectors';
+import { getUser } from './../store/selectors/ideas.selectors';
 
 @Injectable({
   providedIn: 'root',
