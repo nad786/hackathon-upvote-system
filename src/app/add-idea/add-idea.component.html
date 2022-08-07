@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="ideaForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" formControlName="title" class="form-control"
+          [ngClass]="{ 'is-invalid': ideaForm['controls']['title'].touched && ideaForm['controls']['title'].errors }" />
+        <div *ngIf="ideaForm['controls']['title'].touched && ideaForm['controls']['title'].errors"
+          class="invalid-feedback">
+          <div>Title is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" formControlName="description" class="form-control"
+          [ngClass]="{ 'is-invalid': ideaForm['controls']['description'].touched && ideaForm['controls']['description'].errors }" />
+        <div *ngIf="ideaForm['controls']['description'].touched && ideaForm['controls']['title'].errors"
+          class="invalid-feedback">
+          <div>Description is required</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+
+      <label>Tags</label>
+      <div class="tags">
+        <div class="form-check" *ngFor="let tag of tags">
+          <input class="form-check-input" (change)="tag.selected = !tag.selected; addtags()" type="checkbox" name="tags"
+            id="tags" [value]="tag.title"><label class="form-check-label">{{tag.title}}</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary mr-1" type="submit">Register</button>
+      <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+    </div>
+  </form>
+</div>

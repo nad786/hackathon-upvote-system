@@ -1,0 +1,17 @@
+.container {
+  // margin: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+
+  .text-center {
+    margin-top: 20px;
+    button {
+       margin-left: 20px;
+      }
+  }
+
+  .tags {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

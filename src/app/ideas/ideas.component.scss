@@ -1,0 +1,35 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 20px;
+  position: relative;
+
+  .vote {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    div {
+      display: inline-block;
+    }
+
+    span {
+      margin: 0 10px;
+    }
+  }
+
+  .liked {
+    color: red;
+    cursor: pointer;
+  }
+
+}
+.idea {
+  max-width: 300px;
+  box-shadow: 5px 11px 12px #796a6a;
+}
+.idea:hover {
+  transform: scale(1.1);
+}
