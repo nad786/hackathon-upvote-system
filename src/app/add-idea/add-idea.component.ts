@@ -1,10 +1,10 @@
+import { selectIdeas } from './../store/selectors/ideas.selectors';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { IIdeas } from './../modals/IIdeas';
 import { HttpService } from './../http.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
-  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -14,6 +14,7 @@ import {
   getAllIdeasFromStore,
   getUser,
 } from '../store/selectors/ideas.selectors';
+import { getAllIdeas } from '../store/actions/ideas.actions';
 
 @Component({
   selector: 'app-add-idea',
@@ -22,7 +23,10 @@ import {
 })
 export class AddIdeaComponent implements OnInit {
   public ideaForm: FormGroup | any = null;
-  ideas: Array<IIdeas> | any = [];
+  @Input() ideas: Array<IIdeas> | any = [];
+  @Input() idea: IIdeas | any = {};
+  @Input() edit = false;
+  selectedIndex = -1;
   tags = [
     { title: 'feature', selected: false },
     { title: 'tech', selected: false },
@@ -33,11 +37,7 @@ export class AddIdeaComponent implements OnInit {
     private fb: FormBuilder,
     private store: Store<any>,
     private router: Router
-  ) {
-    this.store.pipe(select(getUser)).subscribe((res) => {
-      this.createForm(res.userId);
-    });
-  }
+  ) {}
 
   createForm(userName: string) {
     this.ideaForm = this.fb.group({
@@ -45,6 +45,7 @@ export class AddIdeaComponent implements OnInit {
       description: ['', Validators.required],
       tags: ['', Validators.required],
       createdBy: userName,
+      vote: this.fb.array([]),
       createdOn: new Date().getTime(), //works as id
     });
   }
@@ -59,6 +60,19 @@ export class AddIdeaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.store.pipe(select(getUser)).subscribe((res) => {
+      this.createForm(res.userId);
+      if (this.edit) {
+        this.ideaForm.patchValue(this.idea);
+        this.tags.forEach((tag: any) => {
+          tag['selected'] = this.ideaForm.value.tags.includes(tag.title);
+        });
+
+        this.selectedIndex = this.ideas.findIndex(
+          (idea: any) => idea.createdOn == this.idea['createdOn']
+        );
+      }
+    });
     this.store
       .pipe(select(getAllIdeasFromStore))
       .subscribe((res: Array<any>) => {
@@ -70,9 +84,17 @@ export class AddIdeaComponent implements OnInit {
     if (!this.ideas) {
       this.ideas = [];
     }
-    this.ideas.push(this.ideaForm.value);
+    if (!this.edit) {
+      this.ideas.push(this.ideaForm.value);
+    } else {
+      this.ideas[this.selectedIndex] = this.ideaForm.value;
+    }
+
     this.http.post(this.ideas).subscribe((res) => {
-      this.router.navigate(['/ideas']);
+      this.router.navigate(['./login']).then((val) => {
+        this.store.dispatch(getAllIdeas());
+        this.router.navigate(['./ideas']);
+      });
     });
   }
 

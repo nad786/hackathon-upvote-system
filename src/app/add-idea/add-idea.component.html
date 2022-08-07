@@ -25,14 +25,15 @@
       <label>Tags</label>
       <div class="tags">
         <div class="form-check" *ngFor="let tag of tags">
-          <input class="form-check-input" (change)="tag.selected = !tag.selected; addtags()" type="checkbox" name="tags"
-            id="tags" [value]="tag.title"><label class="form-check-label">{{tag.title}}</label>
+          <input class="form-check-input" [checked]="tag.selected" (change)="tag.selected = !tag.selected; addtags()"
+            type="checkbox" name="tags" id="tags" [value]="tag.title"><label
+            class="form-check-label">{{tag.title}}</label>
         </div>
       </div>
 
     </div>
     <div class="text-center">
-      <button class="btn btn-primary mr-1" type="submit">Register</button>
+      <button class="btn btn-primary mr-1" [disabled]="!ideaForm.valid" type="submit">Register</button>
       <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
     </div>
   </form>

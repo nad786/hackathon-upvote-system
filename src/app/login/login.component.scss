@@ -1,4 +1,9 @@
 .container {
    margin: 20px auto;
   max-width: 500px;
+
+  .card {
+    box-shadow: -11px 10px 12px #796a6a;
+    padding: 20px;
+  }
 }

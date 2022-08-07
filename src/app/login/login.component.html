@@ -1,15 +1,17 @@
 <div class="container">
-  <!-- Email input -->
-  <div class="form-outline">
-    <input [(ngModel)]="userId" type="email" id="form2Example1" class="form-control" />
-    <label class="form-label" for="form2Example1">UserId</label>
-  </div>
+  <div class="card">
+    <!-- Email input -->
+    <div class="form-outline">
+      <input [(ngModel)]="userId" type="email" id="form2Example1" class="form-control" />
+      <label class="form-label" for="form2Example1">UserId</label>
+    </div>
 
-  <!-- Password input -->
-  <div class="form-outline">
-    <input [(ngModel)]="password" type="password" id="form2Example2" class="form-control" />
-    <label class="form-label" for="form2Example2">Password</label>
+    <!-- Password input -->
+    <div class="form-outline">
+      <input [(ngModel)]="password" type="password" id="form2Example2" class="form-control" />
+      <label class="form-label" for="form2Example2">Password</label>
+    </div>
+    <!-- Submit button -->
+    <button type="button" class="btn btn-primary btn-block" (click)="login()">Login</button>
   </div>
-  <!-- Submit button -->
-  <button type="button" class="btn btn-primary btn-block" (click)="login()">Login</button>
 </div>

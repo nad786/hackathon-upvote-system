@@ -11,7 +11,6 @@ import { environment } from '../environments/environment';
 import { LoaderComponent } from './loader/loader.component';
 import { EffectsModule } from '@ngrx/effects';
 import { IdeasComponent } from './ideas/ideas.component';
-import { IdeaComponent } from './idea/idea.component';
 import { IdeasEffect } from './store/effects/ideas.effects';
 import { AddIdeaComponent } from './add-idea/add-idea.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,7 +23,6 @@ import { FilterArrayPipe } from './pipes/filter-array.pipe';
     AppComponent,
     LoaderComponent,
     IdeasComponent,
-    IdeaComponent,
     AddIdeaComponent,
     LoginComponent,
     GetObjectKeyLengthPipe,
